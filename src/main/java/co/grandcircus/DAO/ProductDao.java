@@ -29,8 +29,8 @@ public class ProductDao {
 		boolean success = true;// change this to false if using checkemailexists
 		// if (!checkEmailExists())
 		String sql = "INSERT INTO `coffeeshop_db`.`products` "
-				+ "(`name`, `price`, `description`, `quantity`) VALUES (?, ?, ?, ?)";
-		jdbc.update(sql, product.getName(), product.getPrice(), product.getDescription(), product.getQuantity());
+				+ "(`name`, `price`, `description`, `quantity`, image_path) VALUES (?, ?, ?, ?,?)";
+		jdbc.update(sql, product.getName(), product.getPrice(), product.getDescription(), product.getQuantity(), product.getimagePath());
 		return success;
 	}
 

@@ -7,6 +7,7 @@ public class Product {
 		private String description;
 		private Integer quantity;
 		private Double price;
+		private String imagePath;
 		
 		
 		//Constructor
@@ -15,12 +16,13 @@ public class Product {
 		}
 
 
-		public Product(String name, String description, Integer quantity, Double price) {
+		public Product(String name, String description, Integer quantity, Double price, String imagePath) {
 			super();
 			this.name = name;
 			this.description = description;
 			this.quantity = quantity;
 			this.price = price;
+			this.imagePath = imagePath;
 		}
 
 
@@ -47,7 +49,10 @@ public class Product {
 		public Double getPrice() {
 			return price;
 		}
-
+		
+		public String getimagePath() {
+			return imagePath;
+		}
 
 		public void setId(Long id) {
 			this.id = id;
@@ -71,6 +76,10 @@ public class Product {
 
 		public void setPrice(Double price) {
 			this.price = price;
+		}
+
+		public void setImagePath(String imagePath) {
+			this.imagePath = imagePath;
 		}
 		
 
