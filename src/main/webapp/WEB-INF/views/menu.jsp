@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<title>Home</title>
+<title>Menu</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -38,56 +38,64 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
+					<li class="nav-item"><a class="nav-link" href="/">Home</a>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Login</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="/register">Register</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="/menu">Menu</a>
+					<li class="nav-item active"><a class="nav-link" href="#">Menu
+					<span class="sr-only">(current)</span></a>
 					</li>
 				</ul>
 			</div>
 		</nav>
+
+	</header>
 	<!--Main Navigation-->
 
 
-	  <!-- Intro -->
-  <section class="view">
+	<h1>Welcome!</h1>
 
-    <div class="row">
-
-      <div class="col-md-6 center">
-
-        <div class="d-flex flex-column justify-content-center align-items-center h-100 well">
-          <h1 class="heading display-3 brown-text h1-responsive">Welcome to JaVoracious</h1>
-          <h4 class="subheading font-weight-bold brown-text h4-responsive">Where the springiest beans make a responsive splash in your mug. </h4>
-          <div class=" align-items-center">
-            <a href="/menu" type="button" class="btn heavy-rain-gradient btn-rounded"><h5 class="h5-responsive font-weight-bold brown-text">Menu</h5></a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-md-6">
-
-        <div class="view">
-          <img src="/img/coffee.jpeg" class="img-fluid" alt="smaple image">
-          <div class="mask flex-center hm-gradient">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-  <!-- Intro -->
-
-</header>
 
 		
+		<div class="container">
+			<c:forEach items="${ products }" var="product" varStatus="productCounter">
+				<c:if test="${productCounter.count % 3 == 1}">
+					<div class="row v-center-parent">
+				</c:if>
+				<div class="col-md-4">
+
+					<!-- Card -->
+					<div class="card v-center-child">
+
+						<!-- Card image -->
+						<img class="card-img-top"
+							src="/img/productimages/${ product.imagePath }"
+							alt="${product.name } image">
+
+						<!-- Card content -->
+						<div class="card-body">
+
+							<!-- Title -->
+							<h4 class="card-title">
+								<a>${product.name}</a>
+							</h4>
+							<!-- Text -->
+							<p class="card-text">${product.description}</p>
+							<!-- Button -->
+							<a href="#" class="btn btn-primary"><fmt:formatNumber value="${product.price}" type="currency" /></a>
+						</div>
+					</div>
+					<!-- Card -->
+
+				</div>
+				<c:if
+					test="${productCounter.count % 3 == 0||productCounter.count == fn:length(values)}">
+					</div><br>
+		</c:if>
+		</c:forEach>
+	</div>
 
 
 	<!-- jQuery -->

@@ -1,0 +1,19 @@
+.btn-rounded{
+	border-radius: 20%;
+}
+
+.center{
+	text-align: center;
+}
+
+.align-items-center{
+	display: inline-block;
+}
+
+/* .v-center-parent {
+	padding: 5% 0;
+	}
+	
+.v-center-child{
+	padding: 10% 0;
+}  */

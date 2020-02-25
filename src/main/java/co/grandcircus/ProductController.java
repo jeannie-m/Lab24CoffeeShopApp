@@ -17,9 +17,15 @@ public class ProductController {
 	ProductDao pDao;
 	
 	@RequestMapping("/")
-	public ModelAndView list() {
+	public ModelAndView home() {
 		List<Product> products = pDao.findAll();
 		return new ModelAndView("index", "products", products);
+	}
+	
+	@RequestMapping("/menu")
+	public ModelAndView menu() {
+		List<Product> products = pDao.findAll();
+		return new ModelAndView("menu", "products", products);
 	}
 	
 }
