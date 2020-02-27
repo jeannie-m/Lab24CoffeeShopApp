@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import co.grandcircus.beans.User;
+import co.grandcircus.beans.UserBean;
 
 @Repository
 public class UserDao {
@@ -13,7 +13,7 @@ public class UserDao {
 	@Autowired
 	private JdbcTemplate jdbc;
 	
-	public boolean addUser(User user) {
+	public boolean addUser(UserBean user) {
 		boolean success = true;//change this to false if using checkemailexists
 		//if (!checkEmailExists())
 		String sql = "INSERT INTO `coffeeshop_db`.`users` "
@@ -24,8 +24,8 @@ public class UserDao {
 		return success;
 	}
 	
-	public User findById(Long id) {
+	public UserBean findById(Long id) {
 		String sql = "SELECT * FROM users WHERE id = ?";
-		return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), id);
+		return jdbc.queryForObject(sql, new BeanPropertyRowMapper<>(UserBean.class), id);
 	}
 }

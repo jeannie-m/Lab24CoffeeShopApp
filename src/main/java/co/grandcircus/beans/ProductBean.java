@@ -1,6 +1,6 @@
 package co.grandcircus.beans;
 
-public class Product {
+public class ProductBean {
 
 		private Long id;
 		private String name;
@@ -11,12 +11,12 @@ public class Product {
 		
 		
 		//Constructor
-		public Product() {
+		public ProductBean() {
 			super();
 		}
 
 
-		public Product(String name, String description, Integer quantity, Double price, String imagePath) {
+		public ProductBean(String name, String description, Integer quantity, Double price, String imagePath) {
 			super();
 			this.name = name;
 			this.description = description;

@@ -11,17 +11,19 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<title>Menu</title>
-<link rel="icon" 
-      type="image/png" 
-      href="https://i2.wp.com/awakedetroit.com/wp-content/uploads/2019/04/cropped-Favicon.png?ssl=1">
+<title>Admin Page JaVoracious</title>
+<link rel="icon" type="image/png"
+	href="https://i2.wp.com/awakedetroit.com/wp-content/uploads/2019/04/cropped-Favicon.png?ssl=1">
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Material Design Bootstrap -->
 <link rel="stylesheet" href="css/mdb.min.css">
- <!-- Bootswatch Swiftly Theme -->
-<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/flatly/bootstrap.min.css" 
-rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz3bodOeialO59u5lUCFF" crossorigin="anonymous">
+<!-- Bootswatch Swiftly Theme -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/flatly/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz3bodOeialO59u5lUCFF"
+	crossorigin="anonymous">
 
 <!-- Your custom styles (optional) -->
 <link rel="stylesheet" href="css/style.css">
@@ -45,12 +47,12 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="/admin">Admin</a>
-					</li>
+					<li class="nav-item active"><a class="nav-link" href="#">Admin
+							<span class="sr-only">(current)</span>
+					</a></li>
 					<li class="nav-item"><a class="nav-link" href="/register">Register</a>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="#">Menu
-							<span class="sr-only">(current)</span>
+					<li class="nav-item"><a class="nav-link" href="/menu">Menu
 					</a></li>
 				</ul>
 			</div>
@@ -65,6 +67,13 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 
 
 	<div class="container">
+		<div class="row">
+			<!--  link to add product-->
+			<div class="col align-items-center">
+				<a href="/add-product-form" class="btn text-align-center">Add a
+					Product</a>
+			</div>
+		</div>
 		<c:forEach items="${ products }" var="product"
 			varStatus="productCounter">
 			<c:if test="${productCounter.count % 3 == 1}">
@@ -77,9 +86,8 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 
 					<!-- Card image -->
 					<img class="card-img-top"
-						src="/img/productimages/${product.imagePath}"
-						alt="${ product.name } image">
-					<!-- consider adding an if else here- if imagepath is not null, etc if is null then default image or something -->
+						src="/img/productimages/${ product.imagePath }"
+						alt="${product.name } image">
 
 					<!-- Card content -->
 					<div class="card-body">
@@ -90,9 +98,26 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 						</h4>
 						<!-- Text -->
 						<p class="card-text">${product.description}</p>
+						<p class="card-text">
+							<fmt:formatNumber value="${product.price}" type="currency" />
+						</p>
 						<!-- Button -->
-						<a href="#" class="btn btn-primary"><fmt:formatNumber
-								value="${product.price}" type="currency" /></a>
+						<a href="/edit-product-form?id=${ product.id }"
+							class="btn btn-primary">Edit</a>
+						<!--make a controller that takes /edit-product request and directs to form, 
+							form directs to controller that makes changes. that controller redirects to /admin-->
+
+						<!-- 						<p>Click the button to display a confirm box.</p>
+						<button onclick="myFunction()">Try it</button>						
+						<script>
+						function myFunction() {
+						  confirm("Are you sure?");
+						}
+						</script> -->
+ 						<a href="/delete-product?id=${ product.id }"
+							class="btn btn-primary" onclick="return confirm('Are you sure?')">Delete</a>
+<%-- 						<button onclick="return myFunction(${product.id})">Delete</button>
+ --%>
 					</div>
 				</div>
 				<!-- Card -->
@@ -104,8 +129,34 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 	<br>
 	</c:if>
 	</c:forEach>
+	<div class="row">
+		<!--  link to add product-->
+		<div class="col align-items-center">
+			<a href="/add-product-form" class="btn text-align-center">Add a
+				Product</a>
+		</div>
 	</div>
-
+	</div>
+	
+	
+<!-- 	<script>
+		function myFunction(id) {
+			if (confirm("Are you sure?")){
+				return location.href("/delete-product?id=" + id);
+			} else {
+				return location.href("/admin");
+			}
+		}
+	</script> --> 
+<!-- 	<script>
+function myFunction(id) {
+if (confirm === "Are you sure?"){
+location.href("/delete-product?id=" + `${product.id}`
+} else {
+location.href("/admin")
+}
+}
+</script> -->
 
 	<!-- jQuery -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>

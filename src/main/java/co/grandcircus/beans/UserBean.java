@@ -1,6 +1,6 @@
 package co.grandcircus.beans;
 
-public class User {
+public class UserBean {
 
 		private Long id;
 		private String firstName;
@@ -10,14 +10,14 @@ public class User {
 		private String phone;
 		
 		
-		public User() {
+		public UserBean() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
 
 		//Constructor
-		public User(String firstName, String lastName, String email, String password, String phone) {
+		public UserBean(String firstName, String lastName, String email, String password, String phone) {
 			super();
 			this.firstName = firstName;
 			this.lastName = lastName;

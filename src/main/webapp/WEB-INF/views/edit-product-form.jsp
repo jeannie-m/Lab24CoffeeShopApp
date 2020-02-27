@@ -10,8 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-<title>Registration</title>
+<title>Edit a Product - JaVoracious!</title>
 <link rel="icon" 
       type="image/png" 
       href="https://i2.wp.com/awakedetroit.com/wp-content/uploads/2019/04/cropped-Favicon.png?ssl=1">
@@ -46,8 +45,7 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/">Home </a></li>
 				<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
-				<li class="nav-item active"><a class="nav-link"
-					href="/register">Register</a> <span class="sr-only">(current)</span>
+				<li class="nav-item"><a class="nav-link" href="/register">Register</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
 			</ul>
@@ -63,43 +61,47 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 
-			<form action="/register" method="post"
+			<form action="/edit-product-form" method="post"
 				class="border border-light p-5">
 
-				<p class="h4 mb-4 text-center">Register</p>
-
-				<input type="text" name="firstName"
-					id="defaultRegisterFormFirstName" class="form-control mb-4"
-					placeholder="First name"> <input type="text"
-					name="lastName" id="defaultRegisterFormLastName"
-					class="form-control mb-4" placeholder="Last name"> <input
-					type="email" name="email" id="defaultLoginFormEmail"
-					class="form-control mb-4" placeholder="E-mail"> <input
-					type="password" name="password" id="defaultLoginFormPassword"
-					class="form-control mb-4" placeholder="Password"> <input
-					type="text" name="phone" id="defaultRegisterPhonePassword"
-					class="form-control" placeholder="Phone number"
-					aria-describedby="defaultRegisterFormPhoneHelpBlock"> <small
-					id="defaultRegisterFormPhoneHelpBlock"
-					class="form-text text-muted mb-4">Definitely NOT optional,
-					unless you like MissingServletRequestParameterExceptions</small>
-
-				<div class="d-flex justify-content-between">
-					<div>
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="defaultLoginFormRemember"> <label
-								class="custom-control-label" for="defaultLoginFormRemember">Remember
-								me</label>
-						</div>
-					</div>
-					<div>
-						<a href="">Forgot password?</a>
-					</div>
+				<p class="h4 mb-4 text-center">Edit a Product</p>
+				<div>
+				
+				<input type="hidden" name="id" value="${product.id}" />
+				</div>
+				<div>
+				
+				<input type="hidden" name="imagePath" value="${product.imagePath}" />
+				</div>
+				<div>
+				<label>Product Name</label>
+					<input type="text" name="name" value="${ product.name }"
+						class="form-control mb-4">
 				</div>
 
-				<button class="btn btn-info btn-block my-4" type="submit">Create
-					Account</button>
+				<div>
+				<label>Product Description</label>
+					<input type="text" name="description" class="form-control mb-4"
+						value="${product.description }">
+				</div>
+
+				<div>
+				<label>Quantity in Stock</label>
+					<input type="number" name="quantity" class="form-control mb-4"
+						value="${product.quantity }">
+				</div>
+
+				<div>
+				<label>Per Unit Retail Price</label>
+					<input type="number" name="price" class="form-control mb-4"
+						value="${product.price }">
+				</div>
+
+
+
+
+				<button class="btn btn-info btn-block my-4" type="submit">Edit
+					Product</button>
 
 
 			</form>

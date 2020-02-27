@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -10,8 +12,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-<title>Registration</title>
+<title>Add a Product - JaVoracious!</title>
 <link rel="icon" 
       type="image/png" 
       href="https://i2.wp.com/awakedetroit.com/wp-content/uploads/2019/04/cropped-Favicon.png?ssl=1">
@@ -46,8 +47,8 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/">Home </a></li>
 				<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
-				<li class="nav-item active"><a class="nav-link"
-					href="/register">Register</a> <span class="sr-only">(current)</span>
+				<li class="nav-item"><a class="nav-link"
+					href="/register">Register</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
 			</ul>
@@ -63,43 +64,29 @@ rel="stylesheet" integrity="sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 
-			<form action="/register" method="post"
+			<form action="/add-product-form" method="post"
 				class="border border-light p-5">
 
-				<p class="h4 mb-4 text-center">Register</p>
+				<p class="h4 mb-4 text-center">Add a Product</p>
 
-				<input type="text" name="firstName"
-					id="defaultRegisterFormFirstName" class="form-control mb-4"
-					placeholder="First name"> <input type="text"
-					name="lastName" id="defaultRegisterFormLastName"
-					class="form-control mb-4" placeholder="Last name"> <input
-					type="email" name="email" id="defaultLoginFormEmail"
-					class="form-control mb-4" placeholder="E-mail"> <input
-					type="password" name="password" id="defaultLoginFormPassword"
-					class="form-control mb-4" placeholder="Password"> <input
-					type="text" name="phone" id="defaultRegisterPhonePassword"
-					class="form-control" placeholder="Phone number"
-					aria-describedby="defaultRegisterFormPhoneHelpBlock"> <small
-					id="defaultRegisterFormPhoneHelpBlock"
-					class="form-text text-muted mb-4">Definitely NOT optional,
-					unless you like MissingServletRequestParameterExceptions</small>
+				<input type="text" name="name"
+					class="form-control mb-4"
+					placeholder="Product Name"> 
+					<input type="text"
+					name="description" 
+					class="form-control mb-4" placeholder="Product Description"> 
+					<input
+					type="number" name="quantity"
+					class="form-control mb-4" placeholder="Quantity"> 
+					<input
+					type="number" name="price" 
+					class="form-control mb-4" placeholder="Price"> 
 
-				<div class="d-flex justify-content-between">
-					<div>
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="defaultLoginFormRemember"> <label
-								class="custom-control-label" for="defaultLoginFormRemember">Remember
-								me</label>
-						</div>
-					</div>
-					<div>
-						<a href="">Forgot password?</a>
-					</div>
-				</div>
+
+			
 
 				<button class="btn btn-info btn-block my-4" type="submit">Create
-					Account</button>
+					Product</button>
 
 
 			</form>

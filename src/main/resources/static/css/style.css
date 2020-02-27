@@ -1,5 +1,9 @@
-.btn-rounded{
+.btn-rounded .btn{
 	border-radius: 20%;
+	background-color: brown;
+}
+.btn-primary{
+	background-color: #795448 !important;
 }
 
 .center{
@@ -9,6 +13,7 @@
 .align-items-center{
 	display: inline-block;
 }
+
 
 /* .v-center-parent {
 	padding: 5% 0;
